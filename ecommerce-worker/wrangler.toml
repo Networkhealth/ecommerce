@@ -1,1 +1,20 @@
+name = "ecommerce-worker"
+main = "src/index.ts"
+compatibility_date = "2023-12-01"
 
+# Command to add secret: npx wrangler secret put ZARINPAL_MERCHANT_ID
+[vars]
+ENVIRONMENT = "production"
+
+# Command to create: npx wrangler kv:namespace create "PRODUCTS_KV"
+[[kv_namespaces]]
+binding = "PRODUCTS_KV"
+id = "YOUR_KV_NAMESPACE_ID_HERE"      # <-- این را باید با ID خودتان جایگزین کنید
+preview_id = "YOUR_KV_NAMESPACE_PREVIEW_ID_HERE" # <-- این را هم همینطور
+
+# Command to create: npx wrangler d1 create ecommerce-db
+[[d1_databases]]
+binding = "DB"
+database_name = "ecommerce-db"
+database_id = "YOUR_D1_DATABASE_ID_HERE"      # <-- این را هم باید با ID خودتان جایگزین کنید
+preview_database_id = "YOUR_D1_PREVIEW_DATABASE_ID_HERE" # <-- و این یکی را هم
